@@ -122,10 +122,12 @@ namespace VehicleBehaviour {
 
         // When IsPlayer is false you can use this to control the throttle
         public float throttle;
-        public float Throttle { get{ return throttle; } set{ throttle = Mathf.Clamp(value, -1f, 1f); } } 
-
+        public float Throttle { get{ return throttle; } set{ throttle = Mathf.Clamp(value, -1f, 1f); } }
+        //
+        public float inputSteering;
+        public float InputSteering { get { return inputSteering; } set { inputSteering = Mathf.Clamp(value, -1f, 1f); } }
         // Like your own car handbrake, if it's true the car will not move
-        [SerializeField] bool handbrake;
+        public bool handbrake;
         public bool Handbrake { get{ return handbrake; } set{ handbrake = value; } } 
         
         // Use this to disable drifting
@@ -211,6 +213,7 @@ namespace VehicleBehaviour {
         // Visual feedbacks and boost regen
         void Update()
         {
+            Debug.Log(_rb.velocity.magnitude);
             foreach (ParticleSystem gasParticle in gasParticles)
             {
                 gasParticle.Play();
@@ -223,6 +226,14 @@ namespace VehicleBehaviour {
                 if (boost > maxBoost) { boost = maxBoost; }
             }
         }
+        public void Accelerate()
+        {
+            handbrake = false;
+        }
+        public void Brake()
+        {
+            handbrake = true;
+        }
         
         // Update everything
         void FixedUpdate () {
@@ -233,15 +244,16 @@ namespace VehicleBehaviour {
             // Get all the inputs!
             if (isPlayer) {
                 // Accelerate & brake
-                if (throttleInput != "" && throttleInput != null)
+                /*if (throttleInput != "" && throttleInput != null)
                 {
                     throttle = GetInput(throttleInput) - GetInput(brakeInput);
                     Debug.Log(throttle);
-                }
+                }*/
                 // Boost
                 boosting = (GetInput(boostInput) > 0.5f);
                 // Turn
-                steering = turnInputCurve.Evaluate(GetInput(turnInput)) * steerAngle;
+                steering = /*turnInputCurve.Evaluate(GetInput(turnInput))*/ inputSteering * steerAngle;
+                Debug.Log(inputSteering);
                 // Dirft
                 drift = GetInput(driftInput) > 0 && _rb.velocity.sqrMagnitude > 100;
                 // Jump
@@ -268,7 +280,6 @@ namespace VehicleBehaviour {
                     wheel.motorTorque = 0.0001f;
                     wheel.brakeTorque = brakeForce;
                 }
-                Debug.Log("hand");
             }
             else if (Mathf.Abs(speed) < 4 || Mathf.Sign(speed) == Mathf.Sign(throttle))
             {

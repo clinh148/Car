@@ -5940,7 +5940,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 282840810}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6547d18b2bc62c94aa5ec1e87434da4e, type: 3}
   m_Name: 
@@ -6037,7 +6037,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 282840810}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f6d3ff905719c845a4a6404bc4d4162, type: 3}
   m_Name: 
@@ -12600,16 +12600,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 224437047118626172, guid: afec60b2ce5345c4782cc0a45e5fa926,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 224654234449074754, guid: afec60b2ce5345c4782cc0a45e5fa926,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 60
-      objectReference: {fileID: 0}
     - target: {fileID: 224662034053572690, guid: afec60b2ce5345c4782cc0a45e5fa926,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12699,6 +12689,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224437047118626172, guid: afec60b2ce5345c4782cc0a45e5fa926,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 224654234449074754, guid: afec60b2ce5345c4782cc0a45e5fa926,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 114965483807734494, guid: afec60b2ce5345c4782cc0a45e5fa926,
         type: 3}
@@ -17348,6 +17348,7 @@ GameObject:
   - component: {fileID: 787965072}
   - component: {fileID: 787965071}
   - component: {fileID: 787965070}
+  - component: {fileID: 787965073}
   m_Layer: 5
   m_Name: ButtonRight
   m_TagString: Untagged
@@ -17457,6 +17458,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 787965068}
   m_CullTransparentMesh: 0
+--- !u!114 &787965073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 787965068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d1a645beeaff3248ab01f9b3d630b60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  typeButton: 3
 --- !u!1 &790423666
 GameObject:
   m_ObjectHideFlags: 0
@@ -20512,6 +20526,10 @@ PrefabInstance:
     - target: {fileID: 1637335803908784, guid: af384ca59b0f24483b0163f2ae19fe10, type: 3}
       propertyPath: m_Name
       value: Car02
+      objectReference: {fileID: 0}
+    - target: {fileID: 1637335803908784, guid: af384ca59b0f24483b0163f2ae19fe10, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4704918474422382, guid: af384ca59b0f24483b0163f2ae19fe10, type: 3}
       propertyPath: m_LocalPosition.x
@@ -23760,7 +23778,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1058455024
 Transform:
   m_ObjectHideFlags: 0
@@ -25710,6 +25728,7 @@ GameObject:
   - component: {fileID: 1142010312}
   - component: {fileID: 1142010311}
   - component: {fileID: 1142010310}
+  - component: {fileID: 1142010313}
   m_Layer: 5
   m_Name: ButtonLeft
   m_TagString: Untagged
@@ -25819,6 +25838,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1142010308}
   m_CullTransparentMesh: 0
+--- !u!114 &1142010313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1142010308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d1a645beeaff3248ab01f9b3d630b60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  typeButton: 2
 --- !u!1 &1142025124
 GameObject:
   m_ObjectHideFlags: 0
@@ -29366,8 +29398,9 @@ GameObject:
   - component: {fileID: 1291533010}
   - component: {fileID: 1291533009}
   - component: {fileID: 1291533008}
+  - component: {fileID: 1291533011}
   m_Layer: 5
-  m_Name: ButtonUp
+  m_Name: ButtonAccelerate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29475,6 +29508,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1291533006}
   m_CullTransparentMesh: 0
+--- !u!114 &1291533011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1291533006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d1a645beeaff3248ab01f9b3d630b60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  typeButton: 0
 --- !u!1001 &1293337153
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32785,7 +32831,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!23 &1423962150
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -41373,6 +41419,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _anim: {fileID: 0}
+  btnUp: {fileID: 1291533008}
+  btnDown: {fileID: 1969098030}
 --- !u!114 &1796363003
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46415,8 +46463,9 @@ GameObject:
   - component: {fileID: 1969098032}
   - component: {fileID: 1969098031}
   - component: {fileID: 1969098030}
+  - component: {fileID: 1969098033}
   m_Layer: 5
-  m_Name: ButtonDown
+  m_Name: ButtonBrake
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46524,6 +46573,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1969098028}
   m_CullTransparentMesh: 0
+--- !u!114 &1969098033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1969098028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d1a645beeaff3248ab01f9b3d630b60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  typeButton: 1
 --- !u!1001 &1970215146
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -49957,7 +50019,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1410758065017933
 GameObject:
   m_ObjectHideFlags: 0
