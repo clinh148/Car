@@ -1,18 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PanelMain : PanelBase
 {
-    // Start is called before the first frame update
+    [SerializeField] private Button btnUp;
+    [SerializeField] private Button btnDown;
     void Start()
     {
-        
+        btnUp.onClick.AddListener(ClickUp);
     }
 
-    // Update is called once per frame
-    void Update()
+    void ClickUp()
     {
-        
+
     }
 }

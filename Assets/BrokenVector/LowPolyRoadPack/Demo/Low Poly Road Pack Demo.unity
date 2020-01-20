@@ -820,6 +820,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1427aafbfd864234f8ea0661c23dab64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_IsNeedDestroy: 0
   frontDriverW: {fileID: 917876824}
   frontPassengerW: {fileID: 1206430812}
   rearDriverW: {fileID: 1081355091}
@@ -9181,7 +9182,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &441001448
 Transform:
   m_ObjectHideFlags: 0

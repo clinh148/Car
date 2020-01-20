@@ -121,7 +121,7 @@ namespace VehicleBehaviour {
         public float Steering { get{ return steering; } set{ steering = Mathf.Clamp(value, -1f, 1f); } } 
 
         // When IsPlayer is false you can use this to control the throttle
-        float throttle;
+        public float throttle;
         public float Throttle { get{ return throttle; } set{ throttle = Mathf.Clamp(value, -1f, 1f); } } 
 
         // Like your own car handbrake, if it's true the car will not move
@@ -207,7 +207,7 @@ namespace VehicleBehaviour {
                 wheel.motorTorque = 0.0001f;
             }
         }
-
+  
         // Visual feedbacks and boost regen
         void Update()
         {
@@ -226,16 +226,7 @@ namespace VehicleBehaviour {
         
         // Update everything
         void FixedUpdate () {
-            if (throttle == 0)
-            {
-                foreach (WheelCollider wheel in wheels)
-                {
-                    // Don't zero out this value or the wheel completly lock up
-                    wheel.motorTorque = 0;
-                    wheel.brakeTorque = 0;
-                    Debug.Log(0);
-                }
-            }
+
             // Mesure current speed
             speed = transform.InverseTransformDirection(_rb.velocity).z * 3.6f;
 
@@ -245,7 +236,7 @@ namespace VehicleBehaviour {
                 if (throttleInput != "" && throttleInput != null)
                 {
                     throttle = GetInput(throttleInput) - GetInput(brakeInput);
-                    //Debug.Log(throttle);
+                    Debug.Log(throttle);
                 }
                 // Boost
                 boosting = (GetInput(boostInput) > 0.5f);
@@ -284,8 +275,8 @@ namespace VehicleBehaviour {
                 foreach (WheelCollider wheel in driveWheel)
                 {
                     wheel.motorTorque = throttle * motorTorque.Evaluate(speed) * diffGearing / driveWheel.Length;
+
                 }
-                Debug.Log("motor: "+ throttle);
             }
             else 
             {
@@ -294,7 +285,26 @@ namespace VehicleBehaviour {
                     wheel.brakeTorque = Mathf.Abs(throttle) * brakeForce;
                 }
             }
+            //
+            /*if (throttle != 0)
+            {
+                foreach (WheelCollider wheel in driveWheel)
+                {
+                    wheel.motorTorque = throttle * motorTorque.Evaluate(speed) * diffGearing / driveWheel.Length;
+                    Debug.Log("motor: " + wheel.motorTorque);
 
+                }
+            }
+            else
+            {
+                _rb.velocity = Vector3.zero;
+                foreach (WheelCollider wheel in driveWheel)
+                {
+                    wheel.motorTorque = 0;
+                    Debug.Log("brake: " + wheel.motorTorque);
+
+                }
+            }*/
             // Jump
             if (jumping && isPlayer) {
                 if (!IsGrounded)
