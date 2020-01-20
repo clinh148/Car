@@ -209,7 +209,12 @@ namespace VehicleBehaviour {
                 wheel.motorTorque = 0.0001f;
             }
         }
-  
+        public bool IsStop()
+        {
+            if (_rb.velocity.magnitude <= 0.1f)
+                return true;
+            return false;
+        }
         // Visual feedbacks and boost regen
         void Update()
         {

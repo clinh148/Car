@@ -23,7 +23,7 @@ public class InputButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
         if (typeButton == TypeButton.Brake)
         {
-            if (!GameManager.I.car.handbrake)
+            /*if (!GameManager.I.car.handbrake)
             {
                 GameManager.I.car.handbrake = true;
             }
@@ -31,6 +31,15 @@ public class InputButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             {
                 GameManager.I.car.handbrake = false;
                 GameManager.I.car.throttle = -1f;
+            }*/
+            if (GameManager.I.car.IsStop())
+            {
+                GameManager.I.car.handbrake = false;
+                GameManager.I.car.throttle = -1f;
+            }
+            else
+            {
+                GameManager.I.car.handbrake = true;
             }
         }
         else if (typeButton == TypeButton.Accelerate)
